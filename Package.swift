@@ -9,6 +9,7 @@ let package = Package(
     products: [
         .library(name: "CoreUI", targets: ["CoreUIWrapper"]),
         .library(name: "RealmTest", targets: ["RealmWrapper"]),
+        .library(name: "Analytics", targets: ["AnalyticsWrapper"]),
         .library(name: "CoreNetwork", targets: ["CoreNetworkWrapper"]),
         .library(name: "Integration", targets: ["IntegrationWrapper"])
     ],
@@ -74,5 +75,23 @@ let package = Package(
             name: "CoreUI",
             url: "https://nexus.inno.tech/repository/vkc-hosted-raw-ios/com/innotech/CoreUI/435867645/CoreUI-27843187.435867645.xcframework.zip",
             checksum: "7411f5f5e01b467cb7c4f3186dbcb074dd381443f24aa1957557260150ee37f6"),
+        // Analytics
+        .target(name: "AnalyticsWrapper",
+                dependencies: [
+                    .target(name: "Analytics"),
+                    .target(name: "Realm-test"),
+                    .target(name: "CoreNetwork"),
+                    .target(name: "Integration"),
+                    .product(name: "CArch", package: "CArch"),
+                    .product(name: "CRest", package: "CRest"),
+                    .product(name: "CFoundation", package: "CFoundation"),
+                    .product(name: "CRepository", package: "CRepository"),
+                    .product(name: "AlamofireImage", package: "AlamofireImage")
+                ],
+                path: "AnalyticsWrapper"),
+        .binaryTarget(
+            name: "Analytics",
+            url: "https://nexus.inno.tech/repository/vkc-hosted-raw-ios/com/innotech/Analytics/421000317/Analytics-27853046.421000317.xcframework.zip",
+            checksum: "00f9b0c6ef11b5e61098ca5cfeb83c5da1616f1c0275511496ea0cfc27df1f42"),
     ]
 )
