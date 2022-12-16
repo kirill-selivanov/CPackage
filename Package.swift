@@ -70,11 +70,12 @@ let package = Package(
                     .product(name: "CUIKit", package: "CUIKit"),
                     .product(name: "CFoundation", package: "CFoundation"),
                 ],
-                path: "CoreUIWrapper"),
+                path: "CoreUIWrapper",
+                swiftSettings: [.unsafeFlags(["-Xfrontend", "-enable-experimental-concurrency"])]),
         .binaryTarget(
             name: "CoreUI",
-            url: "https://nexus.inno.tech/repository/vkc-hosted-raw-ios/com/innotech/CoreUI/435867645/CoreUI-27843187.435867645.xcframework.zip",
-            checksum: "7411f5f5e01b467cb7c4f3186dbcb074dd381443f24aa1957557260150ee37f6"),
+            url: "https://nexus.inno.tech/repository/vkc-hosted-raw-ios/com/innotech/CoreUI/347298657/CoreUI-27853384.347298657.xcframework.zip",
+            checksum: "8b5498539f97c6c601b6965a857bbc2f3db668156b5ba311f6c694d322287e69"),
         // Analytics
         .target(name: "AnalyticsWrapper",
                 dependencies: [
